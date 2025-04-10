@@ -16,7 +16,7 @@
         
 # print(temp)
 
-import pandas
+# import pandas
 
 # data = pandas.read_csv("weather_data.csv")
 # Data frames are like table in excel
@@ -66,24 +66,25 @@ import pandas
 # print(data)
 # data.to_csv("new_data.csv")
 
+import pandas
 
-data = pandas.read_csv("weather_data.csv")
-data_dict = data.to_dict()
-temp_list = data.temp.to_list
-average = data.temp.mean()
-max_temp = data.temp.max()
-monday = data[data.day == "Monday"]
-temp_max = data[data.temp == data.temp.max()]
+data = pandas.read_csv("Squirrel_Data.csv")
+# print(data["Primary Fur Color"])
+gray_data = data[data["Primary Fur Color"] == "Gray"]
+gray_row = gray_data["Primary Fur Color"].size
 
-temp = monday.temp
-print(temp)
+cinnamon_data = data[data["Primary Fur Color"] == "Cinnamon"]
+cinnamon_row = cinnamon_data["Primary Fur Color"].size
+
+black_data = data[data["Primary Fur Color"] == "Black"]
+print(black_data)
+black_row = black_data["Primary Fur Color"].size
 
 
-student_dict = {
-    "students": ["Arslan", "kamran", "Ali"],
-    "Scores": [56,77,34],
+color_dict = {
+  "Fur Color": ["grey", "red", "black"],
+  "Count": [gray_row, cinnamon_row, black_row]
 }
 
-data_frame = pandas.DataFrame(student_dict)
-print(data_frame)
-data_frame.to_csv("Abc.csv")
+data_frame = pandas.DataFrame(color_dict)
+data_frame.to_csv("squirrel_colors_data.csv")
